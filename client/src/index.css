@@ -1,0 +1,107 @@
+* {
+  font-family: "Manrope", sans-serif !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.my_profile-bg {
+  width: 340px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.my_profile_user-img {
+  border-radius: 100%;
+  margin-left: -64px;
+}
+
+.property_details-img {
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .my_profile-bg {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .my_profile_user-img {
+    margin-left: 0px;
+    margin-top: -64px;
+  }
+
+  .property_details-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Sidebar hover: blue background, white text/icon */
+.yariga-sider .MuiListItemButton-root,
+.yariga-sider .MuiButtonBase-root,
+.yariga-sider a,
+.yariga-sider .refine-sider-item {
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+/* Hover state: apply blue BG and white text/icons for many possible item types */
+.yariga-sider .MuiListItemButton-root:hover,
+.yariga-sider .MuiButtonBase-root:hover,
+.yariga-sider a:hover,
+.yariga-sider .refine-sider-item:hover,
+.yariga-sider .ant-menu-item:hover {
+  background-color: #1976d2 !important; /* MUI primary blue */
+  color: #ffffff !important;
+}
+
+/* Make sure text, icons, and svgs inherit white color on hover */
+.yariga-sider .MuiListItemButton-root:hover .MuiListItemText-root,
+.yariga-sider .MuiListItemButton-root:hover .MuiListItemText-primary,
+.yariga-sider .MuiListItemButton-root:hover .MuiListItemIcon-root,
+.yariga-sider .MuiButtonBase-root:hover .MuiListItemText-root,
+.yariga-sider a:hover,
+.yariga-sider .refine-sider-item:hover,
+.yariga-sider .ant-menu-item:hover {
+  color: #ffffff !important;
+}
+
+.yariga-sider svg,
+.yariga-sider .MuiListItemIcon-root svg {
+  color: inherit;
+  fill: currentColor;
+}
+
+/* Broad selectors to catch items inside different sider implementations */
+.yariga-sider-root .MuiListItemButton-root:hover,
+.ant-layout-sider .MuiListItemButton-root:hover,
+.refine-sider .MuiListItemButton-root:hover,
+div[class*="sider"] .MuiListItemButton-root:hover,
+.yariga-sider-root .MuiButtonBase-root:hover,
+.ant-layout-sider .MuiButtonBase-root:hover,
+.refine-sider .MuiButtonBase-root:hover,
+.yariga-sider-root a:hover,
+.ant-layout-sider a:hover,
+.refine-sider a:hover,
+.yariga-sider-root .refine-sider-item:hover,
+.ant-layout-sider .refine-sider-item:hover,
+.yariga-sider-root .ant-menu-item:hover,
+.ant-layout-sider .ant-menu-item:hover {
+  background-color: #1976d2 !important;
+  color: #ffffff !important;
+}
+
+.yariga-sider-root .MuiListItemButton-root:hover .MuiListItemIcon-root,
+.ant-layout-sider .MuiListItemButton-root:hover .MuiListItemIcon-root,
+div[class*="sider"] .MuiListItemButton-root:hover .MuiListItemIcon-root,
+.yariga-sider-root .MuiButtonBase-root:hover .MuiListItemIcon-root {
+  color: #ffffff !important;
+}
+
+.yariga-sider-root svg,
+.ant-layout-sider svg,
+div[class*="sider"] svg {
+  color: inherit;
+  fill: currentColor;
+}
