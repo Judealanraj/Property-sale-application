@@ -21,11 +21,6 @@ const Home: React.FC = () => {
           <PropertyReferals />
           <TotalRevenue />
         </Box>
-
-        <Box flex={1} display="flex" flexDirection="column" gap={16}>
-          <TopAgents />
-          <PropertyCard />
-        </Box>
       </Stack>
     </Box>
   );

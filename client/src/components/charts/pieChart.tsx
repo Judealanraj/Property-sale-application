@@ -11,10 +11,10 @@ type PieChartProps = {
 };
 
 const PieChart: React.FC<PieChartProps> = ({
-  series = [60, 40],
-  labels = ["A", "B"],
+  series,
+  labels,
   colors,
-  height = 200,
+  height,
 }) => {
   const options = {
     chart: {
@@ -26,10 +26,7 @@ const PieChart: React.FC<PieChartProps> = ({
       position: "bottom",
     },
     dataLabels: {
-      enabled: true,
-      formatter: function (val: number) {
-        return `${val}%`;
-      },
+      enabled: false,
     },
     plotOptions: {
       pie: {
@@ -38,15 +35,7 @@ const PieChart: React.FC<PieChartProps> = ({
           labels: {
             show: true,
             total: {
-              show: true,
-              label: "Total",
-              formatter: function (w: any) {
-                const sum = w.globals.seriesTotals.reduce(
-                  (a: number, b: number) => a + b,
-                  0
-                );
-                return sum;
-              },
+              show: false,
             },
           },
         },
@@ -65,8 +54,15 @@ const PieChart: React.FC<PieChartProps> = ({
   } as any;
 
   return (
-    <Box bgcolor="background.paper" p={2} borderRadius={1}>
-      <Stack spacing={1} alignItems="stretch">
+    <Box
+      sx={{
+        width: "100%",
+        p: 0,
+        backgroundColor: "transparent",
+        boxShadow: "none",
+      }}
+    >
+      <Stack spacing={0} alignItems="center">
         <Chart options={options} series={series} type="donut" height={height} />
       </Stack>
     </Box>
