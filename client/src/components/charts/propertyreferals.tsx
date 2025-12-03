@@ -42,10 +42,10 @@ const ProgressBar = ({ title, percentage, color }: ProgressBarProps) => (
 const PropertyReferrals = () => {
   return (
     <Box
-      p={4}
+      p={3}
       bgcolor="#fcfcfc"
       id="chart"
-      minWidth={490}
+      sx={{ minWidth: { xs: "auto", md: 300 }, width: "100%" }}
       display="flex"
       flexDirection="column"
       borderRadius="15px"

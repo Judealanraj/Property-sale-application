@@ -16,10 +16,23 @@ const Home: React.FC = () => {
       </Typography>
 
       <Stack direction="row" spacing={2}>
-        <Box flex={1} display="flex" flexDirection="column" gap={16}>
+        <Box flex={1} display="flex" flexDirection="column" gap={2}>
           <PieChart />
-          <PropertyReferals />
-          <TotalRevenue />
+
+          <Box
+            sx={{
+              display: "flex",
+              gap: 16,
+              flexDirection: { xs: "column", md: "row" },
+            }}
+          >
+            <Box flex={1}>
+              <PropertyReferals />
+            </Box>
+            <Box flex={1}>
+              <TotalRevenue />
+            </Box>
+          </Box>
         </Box>
       </Stack>
     </Box>

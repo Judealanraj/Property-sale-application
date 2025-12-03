@@ -43,6 +43,7 @@ import {
   PropertyDetails,
   AllProperties,
   CreateProperty,
+  EditProperty,
   AgentProfile,
 } from "./pages";
 import { parseJwt } from "./utils/parse-jwt";
@@ -64,20 +65,70 @@ function App() {
       const profileObj = credential ? parseJwt(credential) : null;
 
       if (profileObj) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
+        try {
+          // Send user data to server to create/register user
+          const serverUrl =
+            import.meta.env.VITE_SERVER_URL || "http://localhost:8080";
+
+          console.log("👤 Google login successful. Profile:", {
+            name: profileObj.name,
+            email: profileObj.email,
+            picture: profileObj.picture ? "provided" : "missing",
+          });
+
+          console.log("📤 Sending user data to:", `${serverUrl}/api/v1/users`);
+
+          const response = await axios.post(
+            `${serverUrl}/api/v1/users`,
+            {
+              email: profileObj.email,
+              name: profileObj.name,
+              picture: profileObj.picture,
+              googleId: profileObj.sub,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${credential}`,
+              },
+            }
+          );
+
+          console.log("✓ Server response:", response.status, response.data);
+
+          const userData = response.data || {
             ...profileObj,
             avatar: profileObj.picture,
-          })
-        );
+          };
 
-        localStorage.setItem("token", `${credential}`);
+          localStorage.setItem("user", JSON.stringify(userData));
+          localStorage.setItem("token", `${credential}`);
 
-        return {
-          success: true,
-          redirectTo: "/",
-        };
+          console.log("✓ User saved to localStorage");
+
+          return {
+            success: true,
+            redirectTo: "/",
+          };
+        } catch (error) {
+          console.error(
+            "❌ Error creating user on server:",
+            error instanceof Error ? error.message : String(error)
+          );
+          // Still allow login locally even if server fails
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              ...profileObj,
+              avatar: profileObj.picture,
+            })
+          );
+          localStorage.setItem("token", `${credential}`);
+
+          return {
+            success: true,
+            redirectTo: "/",
+          };
+        }
       }
 
       return {
@@ -144,7 +195,7 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                dataProvider={dataProvider("http://localhost:8080/api/v1")}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
                 authProvider={authProvider}
@@ -229,7 +280,7 @@ function App() {
                     <Route path="/properties">
                       <Route index element={<AllProperties />} />
                       <Route path="create" element={<CreateProperty />} />
-                      <Route path="edit/:id" element={<PropertyDetails />} />
+                      <Route path="edit/:id" element={<EditProperty />} />
                       <Route path="show/:id" element={<PropertyDetails />} />
                     </Route>
                     <Route path="/agent">

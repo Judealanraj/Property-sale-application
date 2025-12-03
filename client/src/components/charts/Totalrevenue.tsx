@@ -1,17 +1,16 @@
 import React from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import Chart from "react-apexcharts";
-import {ArrowCircleDownRounded} from "@mui/icons-material";
-import { TotalRevenueOptions,TotalRevenueSeries } from "./chart.config";
-
+import { ArrowCircleDownRounded } from "@mui/icons-material";
+import { TotalRevenueOptions, TotalRevenueSeries } from "./chart.config";
 
 const Totalrevenue = () => {
   return (
-    <Box 
-      p={4}
+    <Box
+      p={3}
       bgcolor="#FCFCFC"
-      id="chart"          
-      minWidth={300}
+      id="chart"
+      sx={{ minWidth: { xs: "auto", md: 300 }, width: "100%" }}
       boxShadow="0px 0px 15px rgba(0, 0, 0, 0.05)"
       borderRadius="15px"
     >
@@ -29,19 +28,17 @@ const Totalrevenue = () => {
           </Typography>
         </Stack>
       </Stack>
-      <Box mt={4}>
+      <Box mt={3}>
         <Chart
           options={TotalRevenueOptions as any}
           series={TotalRevenueSeries}
           type="bar"
-          height={250}    
+          height={200}
           width="100%"
-
         />
       </Box>
-
     </Box>
-  )
-}
+  );
+};
 
-export default Totalrevenue
+export default Totalrevenue;

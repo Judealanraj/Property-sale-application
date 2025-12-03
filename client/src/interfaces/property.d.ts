@@ -13,10 +13,11 @@ export interface FormValues {
     price: number | undefined,
 }
 
-export interface PropertyCardProps {
+export interface  PropertyCardProps {
   id?: BaseKey | undefined,
   title: string,
   location: string,
-  price: string,
+  price: number ,
   photo: string,
+  propertyType: string;
 }

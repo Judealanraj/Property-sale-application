@@ -7,6 +7,7 @@ export { default as Dashboard } from "./dashboard";
 // Properties Pages
 export { default as AllProperties } from "./allProperties";
 export { default as CreateProperty } from "./createProperty";
+export { default as EditProperty } from "./editProperty";
 export { default as PropertyDetails } from "./propertyDetails";
 
 // Agent Pages

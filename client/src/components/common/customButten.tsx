@@ -1,11 +1,35 @@
-import React from 'react'
+import React from "react";
+import Button from "@mui/material/Button";
 
-const customButten = () => {
+type CustomButtonProps = {
+  title: string;
+  handleClick?: () => void;
+  backgroundColor?: string;
+  color?: string;
+  icon?: React.ReactNode;
+};
+
+const CustomButton: React.FC<CustomButtonProps> = ({
+  title,
+  handleClick,
+  backgroundColor = "#475be8",
+  color = "#fff",
+  icon,
+}) => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <Button
+      variant="contained"
+      onClick={handleClick}
+      startIcon={icon}
+      sx={{
+        backgroundColor: backgroundColor,
+        color: color,
+        textTransform: "none",
+      }}
+    >
+      {title}
+    </Button>
+  );
+};
 
-export default customButten
+export default CustomButton;
