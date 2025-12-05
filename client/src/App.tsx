@@ -68,7 +68,7 @@ function App() {
         try {
           // Send user data to server to create/register user
           const serverUrl =
-            import.meta.env.VITE_SERVER_URL || "http://localhost:8080";
+            import.meta.env.VITE_SERVER_URL || "https://property-sale-application-8ky7porsg-judes-projects-19ab628c.vercel.app";
 
           console.log("👤 Google login successful. Profile:", {
             name: profileObj.name,
@@ -195,7 +195,7 @@ function App() {
           <RefineSnackbarProvider>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("http://localhost:8080/api/v1")}
+                dataProvider={dataProvider("https://property-sale-application-8ky7porsg-judes-projects-19ab628c.vercel.app/api/v1")}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerProvider}
                 authProvider={authProvider}
