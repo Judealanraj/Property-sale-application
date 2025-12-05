@@ -34,7 +34,7 @@ const EditProperty: React.FC = () => {
     const fetchProperty = async () => {
       try {
         const serverUrl =
-          import.meta.env.VITE_SERVER_URL || "http://localhost:8080";
+          import.meta.env.VITE_SERVER_URL || "https://property-sale-application-8ky7porsg-judes-projects-19ab628c.vercel.app/";
         const response = await axios.get(
           `${serverUrl}/api/v1/properties/${id}`
         );
