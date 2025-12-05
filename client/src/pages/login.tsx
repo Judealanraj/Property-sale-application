@@ -26,7 +26,7 @@ export const Login: React.FC = () => {
           ux_mode: "popup",
           client_id:
             import.meta.env.VITE_GOOGLE_CLIENT_ID ||
-            "1041339102270-e1fpe2b6v6u1didfndh7jkjmpcashs4f.apps.googleusercontent.com",
+            "76934113332-bck8rp7r4kg7sqghu3dgk9ql857ar0gr.apps.googleusercontent.com",
           callback: async (res: CredentialResponse) => {
             if (res.credential) {
               login(res);
